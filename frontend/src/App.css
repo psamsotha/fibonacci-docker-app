@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.App-link-home {
+  margin: 10px;
+}
+
+.App-routes {
+  margin-top: 2em;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

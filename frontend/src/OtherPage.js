@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import './OtherPage.css';
 
 
 const OtherPage = () => {
   return (
     <div>
-      I'm some other page!
-      <Link to="/">Go back home</Link>
+      <p>I'm some other page!</p>
+      <div>
+        <Link className="App-link" to="/">Go back home</Link>
+      </div>
     </div>
   );
 };

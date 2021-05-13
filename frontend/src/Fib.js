@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './Fib.css';
 
 
 class Fib extends Component {
@@ -10,10 +11,10 @@ class Fib extends Component {
   };
 
 
-  componentDidMount() {
-    this.fetchValues();
-    this.fetchIndexes();
-  }
+  // componentDidMount() {
+  //   this.fetchValues();
+  //   this.fetchIndexes();
+  // }
 
   async fetchValues() {
     const values = await axios.get('/api/values/current');
@@ -54,18 +55,22 @@ class Fib extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label>Enter your index:</label>
-          <input
-            value={this.state.index}
-            onChange={event => this.setState({ index: event.target.value }) }/>
-          <button>Submit</button>
+          <div className="input-label">
+            <label htmlFor="index-input">Enter your index: </label>
+          </div>
+          <div className="index-form">
+            <input id="index-input"
+              value={this.state.index}
+              onChange={event => this.setState({ index: event.target.value }) }/>
+            <button>Submit</button>
+          </div>
         </form>
 
-        <h3>Indexes I have seen:</h3>
+        {/* <h3>Indexes I have seen:</h3>
         <p>{this.renderSeenIndexes()}</p>
 
         <h3>Calculated values:</h3>
-        <p>{this.renderValues()}</p>
+        <p>{this.renderValues()}</p> */}
       </div>
     );
   }
