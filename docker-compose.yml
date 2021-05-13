@@ -1,0 +1,58 @@
+version: '3.8'
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports:
+      - '4040:80'
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    ports:
+      - '5000:5000'
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      PGDATABASE: postgres
+      PGUSER: postgres
+      PGPASSWORD: supersecret
+      PGHOST: postgres
+      PGPORT: 5432
+
+  worker:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile.dev
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+
+  postgres:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: supersecret
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  redis:
+    image: redis:6
