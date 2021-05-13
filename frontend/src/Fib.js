@@ -66,11 +66,11 @@ class Fib extends Component {
           </div>
         </form>
 
-        {/* <h3>Indexes I have seen:</h3>
+        <h3>Indexes I have seen:</h3>
         <p>{this.renderSeenIndexes()}</p>
 
         <h3>Calculated values:</h3>
-        <p>{this.renderValues()}</p> */}
+        <p>{this.renderValues()}</p>
       </div>
     );
   }
