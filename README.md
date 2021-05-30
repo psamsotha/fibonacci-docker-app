@@ -1,18 +1,31 @@
 # fibonacci-docker-app
+
 Example app using multiple containers in Docker
+
+### Table of Contents
+
+* [Introduction](#introduction)
+* [Containers](#containers)
+* [Implementation](#implementation)
+* [Run](#run)
+* [Docker Compose](#docker-compose)
+* [Deployment](#deployment)
+
+
+## Introduction
 
 This is an overly complex Fibonacci app that shows usage of multi-container Docker workflow.
 A user can access a frontend that allows them to view different Fibonacci indexes. All the
 indexes requested by the user will be shown to the user.
 
-## Includes
+## Containers
 
 * [React front end](/client)
 * [Express backend](/server)
 * [Redis worker](/worker)
 * [Nginx reverse proxy](/nginx)
 
-## Flow
+## Implementation
 
 1. A user provides an index to the frontend.
 2. A post request is made the Express server.
@@ -257,4 +270,6 @@ services:
 $ docker-compose down
 ```
 
+## Deploy
 
+![deploy-flow](/docs/docker-deploy-flow.png)
