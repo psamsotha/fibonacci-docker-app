@@ -6,7 +6,7 @@ before_install:
   - docker build -t psamsotha/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run psamsotha/react-test yarn run test -- --coverage
+  - docker run psamsotha/react-test yarn run test -- --watchAll=false --coverage
 
 after_success:
   - docker build -t psamsotha/fibonacci-client ./client
