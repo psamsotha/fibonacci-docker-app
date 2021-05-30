@@ -1,0 +1,20 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t psamsotha/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run psamsotha/react-test yarn run test -- --coverage
+
+after_success:
+  - docker build -t psamsotha/fibonacci-client ./client
+  - docker build -t psamsotha/fibonacci-nginx ./nginx
+  - docker build -t psamsotha/fibonacci-server ./server
+  - docker build -t psamsotha/fibonacci-worker ./worker
+  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+  - docker push psamsotha/fibonacci-client
+  - docker push psamsotha/fibonacci-nginx
+  - docker push psamsotha/fibonacci-server
+  - docker push psamsotha/fibonacci-worker
