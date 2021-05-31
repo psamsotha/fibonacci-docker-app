@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": 2,
   "authentication": {
-    "bucket": "private-configs/docker",
+    "bucket": "private-configs",
     "key": ".dockercfg"
   },
   "containerDefinitions": [
