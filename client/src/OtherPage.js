@@ -6,7 +6,7 @@ import './OtherPage.css';
 const OtherPage = () => {
   return (
     <div>
-      <p>I'm some other page!</p>
+      <p>Hi from OtherPage!</p>
       <div>
         <Link className="App-link" to="/">Go back home</Link>
       </div>
