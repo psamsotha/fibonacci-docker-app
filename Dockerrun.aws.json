@@ -1,0 +1,40 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "authentication": {
+    "bucket": "private-configs",
+    "key": "docker/.dockercfg"
+  },
+  "containerDefinitions": [
+    {
+      "name": "fibonacci-client",
+      "image": "psamsotha/fibonacci-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "fibonacci-server",
+      "image": "psamsotha/fibonacci-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "fibonacci-worker",
+      "image": "psamsotha/fibonacci-worker",
+      "hostname": "worker",
+      "essential": false
+    },
+    {
+      "name": "fibonacci-nginx",
+      "image": "psamsotha/fibonacci-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["fibonacci-client", "fibonacci-server"]
+    }
+  ]
+}
