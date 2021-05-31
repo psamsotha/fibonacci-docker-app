@@ -21,14 +21,15 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  region: us-west-2
-  app: fibonacci-docker-app
-  env: fibonacci-docker-env
-  bucket_name: elasticbeanstalk-us-west-2-557623108041
-  bucket_path: fibonacci-docker-app
+  region: "us-west-2"
+  app: "fibonacci-docker-app"
+  env: "fibonacci-docker-env"
+  bucket_name: "elasticbeanstalk-us-west-2-557623108041"
+  bucket_path: "fibonacci-docker-app"
   on:
-    branch: main
-  access_key_id: $AWS_ACCESS_KEY_ID
+    branch: "main"
+  access_key_id:
+    secure: "$AWS_ACCESS_KEY_ID"
   secret_access_key:
-    secure: $AWS_SECRET_ACCESS_KEY
+    secure: "$AWS_SECRET_ACCESS_KEY"
 
