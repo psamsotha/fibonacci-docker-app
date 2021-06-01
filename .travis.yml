@@ -23,7 +23,7 @@ deploy:
   provider: elasticbeanstalk
   region: "us-west-2"
   app: "fibonacci-docker-app"
-  env: "fibonacci-docker-env"
+  env: "fibonacci-docker-app-env"
   bucket_name: "elasticbeanstalk-us-west-2-557623108041"
   bucket_path: "fibonacci-docker-app"
   on:
