@@ -1,9 +1,5 @@
 {
   "AWSEBDockerrunVersion": 2,
-  "authentication": {
-    "bucket": "private-configs",
-    "key": ".dockercfg"
-  },
   "containerDefinitions": [
     {
       "name": "fibonacci-client",
