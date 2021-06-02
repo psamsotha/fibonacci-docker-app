@@ -600,3 +600,5 @@ To avoid charges, the following resources need to be cleaned up
 ## TODO
 
 * Make Docker Hub repositories private and update Dockerrun.aws.json configuratio to include "authentication"
+* See if we can use CloudFormation
+* Make use of Kubernetes
