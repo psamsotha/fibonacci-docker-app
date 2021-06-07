@@ -11,6 +11,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          <h2>Fib Calculator</h2>
           <div>
             <Link className="App-link App-link-home" to="/">Home</Link>
             <Link className="App-link App-link-home" to="/otherpage">Other Page</Link>
